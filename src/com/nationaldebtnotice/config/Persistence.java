@@ -14,6 +14,10 @@ public class Persistence {
 	public void persistLatestItems(List<Item> items){
 		PrintWriter pw = null;
 		try {
+			File localFolder = new File("local");
+			if (!localFolder.exists()){
+				localFolder.mkdir();
+			}
 			File localFile = new File("local/localitems.per");
 		    pw = new PrintWriter(localFile, "GBK");
 			for(Item item : items){
